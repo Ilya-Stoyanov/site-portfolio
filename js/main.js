@@ -24,12 +24,12 @@ modalCloseBtn.forEach(button => {
 })
 
 //Portfolio section - Modal
+
 const portfolioModals = document.querySelectorAll(".portfolio-model")
 const imgCard = document.querySelectorAll(".img-card")
 const portfolioCloseBtn = document.querySelectorAll(".portfolio-close-btn")
 
 const portfolioModal = function(modalClick){
-    console.log(modalClick);
     portfolioModals[modalClick].classList.add("active")
 }
 
