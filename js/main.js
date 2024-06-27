@@ -1,4 +1,47 @@
 
+// header effect scroll
+const header = document.querySelector(".header")
+window.addEventListener("scroll", function(){
+    window.scrollY > 10 
+        ? header.classList.add("sticky") 
+        : header.classList.remove("sticky")
+})
+
+// Navigation menu items active
+window.addEventListener("scroll", function(){
+    const section = document.querySelectorAll("section")
+    const scrollY = window.scrollY
+
+    section.forEach(function(current){
+        let sectionHight = current.offsetHeight
+        let sectionTop = current.offsetTop - 50
+        let sectionId = current.getAttribute("id")
+        let navItem = document.querySelector(`.nav-item a[href*="${sectionId}"]`)
+
+        if(navItem){
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHight){
+            navItem.classList.add("active")
+            } else {
+            navItem.classList.remove("active") 
+            }
+        }
+        
+        
+    })
+})
+
+//Scroll to top button
+const scrollToTop = document.querySelector(".scrollToTop")
+window.addEventListener("scroll", function(){
+    scrollToTop.classList.toggle("active", this.window.scrollY > 500)
+})
+
+scrollToTop.addEventListener("click", function(){
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+})
+
+
 //Services section - Modal
 
 const serviceModal = document.querySelectorAll(".service-modal")
